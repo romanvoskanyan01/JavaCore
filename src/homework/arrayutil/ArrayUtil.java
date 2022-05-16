@@ -1,7 +1,5 @@
 package homework.arrayutil;
 
-import com.sun.xml.internal.fastinfoset.tools.XML_SAX_StAX_FI;
-
 public class ArrayUtil {
     public static void main(String[] args) {
         int[] array = {1, 4, 6, 5, 11, 25, 16, 20, 30, 33};
