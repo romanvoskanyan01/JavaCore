@@ -9,18 +9,21 @@ public class ArrayUtil {
         System.out.println();
 
         int max = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > max) max = array[i];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) max = array[i];{
+            }
         }
-        System.out.println(max);
+        System.out.println("max " + max);
 
         int min = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (min > array[i]) min = array[i];
+        for (int i = 1; i < array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
+            }
         }
-        System.out.println(min);
+        System.out.println("min " + min);
+        System.out.println("զույգերը։");
 
-        int evenNums;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
                 System.out.print(array[i] + " ");
@@ -28,7 +31,7 @@ public class ArrayUtil {
             }
         }
         System.out.println();
-        int unEven;
+        System.out.println("կենտերը։");
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0) {
                 System.out.print(array[i] + " ");
@@ -36,34 +39,31 @@ public class ArrayUtil {
         }
         System.out.println();
 
-        int countEven = 0;
+        int countOfEvens = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
-                countEven++;
-
-
+                countOfEvens++;
             }
         }
-        System.out.print(countEven);
+        System.out.print( "զույգերի քանակը = " + countOfEvens);
 
         System.out.println();
-        int countUnEven = 0;
+        int countOfOdds = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0) {
-                countUnEven++;
-
+                countOfOdds++;
             }
         }
-        System.out.print(countUnEven);
+        System.out.print("կենտերի քանակը = " + countOfOdds);
 
         System.out.println();
 
-        int result = 0;
+        double result = 0;
         for (int i = 0; i < array.length; i++) {
             result = result + array[i];
 
         }
-        System.out.print(result / array.length);
+        System.out.print( "միջին թվաբանականը = " + result / array.length);
 
         System.out.println();
 
@@ -72,7 +72,7 @@ public class ArrayUtil {
             sum = sum + array[i];
 
         }
-        System.out.print(sum);
+        System.out.print( "գումարը = " +sum);
     }
 }
 
