@@ -1,18 +1,18 @@
 package homework.arrayutil;
 
 
-public class ArrayExample {
+public class CharArrayExample {
     public static void main(String[] args) {
         char[] chars = {'j', 'a', 'v', 'a', 'l', 'o', 'v', 'e'};
         char c = 'o';
         int count = 0;
         for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == c) ;
-            {
+            if (chars[i] == c) {
+                count++;
             }
         }
-        count++;
-        System.out.println("c փոփոխականի քանակը = " + count);
+
+        System.out.println("c փոփոխականի քանակը =" + count);
 
 //գրել կոդ որը կտպի մեջտեղի 2 սինվոլները
         char[] chars2 = {'j', 'a', 'v', 'a', 'l', 'o', 'v', 'e'};
@@ -25,23 +25,23 @@ public class ArrayExample {
         boolean a = false;
         if (chars3[chars3.length - 2] == 'l' && chars3[chars3.length - 1] == 'y') {
             a = true;
-        } else
-            a = false;
+        }
 
         System.out.println(a);
 
 
 //Տպել true եթե տեքստը պարունակում է bob բառը։
         char[] bobArray = {'b', 'a', 'b', 'o', 'l', 'a'};
-        char isBob = 'b';
-        boolean b = false;
+        char d = 'b';
+        boolean isBob = false;
         for (int i = 0; i < bobArray.length; i++) {
-            if (bobArray[i] == isBob && bobArray[i + 2] == isBob) {
-                b = true;
+            if (bobArray[i] == d && bobArray[i + 2] == d) {
+                isBob = true;
+                break;
             }
-            break;
+
         }
-        System.out.println(b);
+        System.out.println(isBob);
 
 //Տպել այն սինվոլները որոնք պռաբել չեն
         char[] text = {' ', ' ', 'b', 'a', 'r', 'e', 'v', ' ', ' '};
