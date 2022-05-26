@@ -3,7 +3,6 @@ package homework.arrayutil;
 public class ArraySpaceExample {
     public static void main(String[] args) {
         char[] spaceArray = {' ', 'c', 'a', 't', ' ', 'b', 'i', ' ', 'b', ' ', ' '};
-        char[] result = {};
         char space = ' ';
         int first = 0;
         int endIndex = 0;
@@ -19,8 +18,13 @@ public class ArraySpaceExample {
                 break;
             }
         }
-        for (int i = first; i <= endIndex; i++) {
-            System.out.print(spaceArray[i]);
+        int newLength = (endIndex - first) + 1;
+        char[] result = new char[newLength];
+        int j = 0;
+        for (int i = first; i<=endIndex; i++) {
+        result[j++] = spaceArray[j];}
+        for (char c : result) {
+            System.out.print(c);
         }
 
     }
