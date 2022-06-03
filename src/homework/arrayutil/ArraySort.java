@@ -1,6 +1,8 @@
 package homework.arrayutil;
 
 public class ArraySort {
+
+
     public static void main(String[] args) {
         int[] numbers = {43, 55, 5, -9, 0, 12, 5, 65};
         for (int i = 0; i < numbers.length - 1; i++) {
@@ -12,11 +14,11 @@ public class ArraySort {
                     min = numbers[j];
                 }
             }
-                int b = numbers[i];
-                numbers[i] = numbers[val];
-                numbers[val] = b;
+            int b = numbers[i];
+            numbers[i] = numbers[val];
+            numbers[val] = b;
 
-            }
+        }
 
         for (int val : numbers)
             System.out.print(val + " ");
@@ -40,13 +42,6 @@ public class ArraySort {
 
         for (int val : numbers)
             System.out.print(val + " ");
-
-
-
-
-
-
-
 
 
     }
