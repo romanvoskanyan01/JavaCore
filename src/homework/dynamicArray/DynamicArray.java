@@ -67,39 +67,6 @@ public class DynamicArray {
             }
         size--;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-   /* int delete(int index) {
-        if (index > 0 && index <= size) {
-            for (int i = 0; i < size; i++) {
-                if (index == array[size]) ;
-
-            }
-        }
-        return array[size--];
-    }
-
-
-    int delete(int index) {
-        if (index < 0 || index >= size)
-            for (int i = 0; i < array.length; i++) {
-                array[i] = array[i + 1];
-            }
-        size--;
-
-        return array[size];
-    }*/
 }
 
 
