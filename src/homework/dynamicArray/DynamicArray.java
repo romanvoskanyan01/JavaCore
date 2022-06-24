@@ -32,11 +32,9 @@ public class DynamicArray {
         }
         return b;
     }
-
     int getByIndex(int index) {
         return array[index];
     }
-
     int getFirstIndexByValue(int value) {
         for (int i = 0; i < size; i++) {
             if (value == array[i]) {
@@ -45,12 +43,10 @@ public class DynamicArray {
         }
         return -1;
     }
-
     void set(int index, int value) {
         array[index] = value;
         System.out.println(value);
     }
-
     void add(int index, int value) {
         if (index >= 0 && index < size)
             for (int i = size; i >= index; i--) {
@@ -59,7 +55,6 @@ public class DynamicArray {
         size++;
         array[index] = value;
     }
-
     void delete(int index) {
         if (index >= 0 || index < size)
             for (int i = index; i < size; i++) {
