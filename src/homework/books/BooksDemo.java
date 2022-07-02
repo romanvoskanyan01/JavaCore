@@ -67,12 +67,14 @@ public class BooksDemo implements Commands {
         String email = scanner.nextLine();
         System.out.println("Please input author gender");
         String gender = scanner.nextLine();
-
-        Author author = new Author(name, surname, email, gender);
-        authorStorage.add(author);
-        System.out.println("Author created!");
+        if (gender.equals("male") || gender.equals("famale")){
+            Author author = new Author(name, surname, email, gender);
+            authorStorage.add(author);
+            System.out.println("Author created!");
+        } else {
+            System.out.println("Please input for gender");
+        }
     }
-
     private static void changeBookAuthor() {
         authorStorage.print();
         System.out.println("Please input author index");
