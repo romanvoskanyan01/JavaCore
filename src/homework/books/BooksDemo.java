@@ -15,14 +15,25 @@ public class BooksDemo implements Commands {
     private static AuthorStorage authorStorage = new AuthorStorage();
 
     public static void main(String[] args) {
-
+        String login;
+        String password;
+        login = "admin";
+        password = "123456";
+        System.out.println("Please input login");
+        String login1 = scanner.nextLine();
+        System.out.println("Please input password");
+        String password1 = scanner.nextLine();
+        if (!login1.equals(login) || !password1.equals(password)) {
+            System.out.println("Invalid login and password");
+        }
+        else {
         boolean run = true;
         while (run) {
             Commands.printCommands();
             int command;
             try {
                 command = Integer.parseInt(scanner.nextLine());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 command = -1;
             }
             switch (command) {
@@ -59,7 +70,7 @@ public class BooksDemo implements Commands {
             }
         }
     }
-
+}
     private static void printBooksByPriceRange() {
         double price = 0;
         try {
