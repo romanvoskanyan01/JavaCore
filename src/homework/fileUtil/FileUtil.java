@@ -1,7 +1,6 @@
 package homework.fileUtil;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.util.*;
 
 
@@ -10,11 +9,12 @@ public class FileUtil {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-       // fileSearch();
-       //   contentSearch();
-         //  findLines();
-       // printSizeOfPackage();
-         //   createFileWithContent();
+        // fileSearch();
+        //  contentSearch();
+        //  findLines();
+        //  printSizeOfPackage();
+        createFileWithContent();
+
     }
 
     //այս մեթոդը պետք է սքաններով վերցնի երկու string.
@@ -36,7 +36,7 @@ public class FileUtil {
     // 2 - keyword - ինչ որ բառ
     // Մեթոդը պետք է նշված path-ում գտնի բոլոր .txt ֆայլերը, և իրենց մեջ փնտրի
     // մեր տված keyword-ը, եթե գտնի, պետք է տպի տվյալ ֆայլի անունը։
-    static void contentSearch() throws IOException {
+    static void contentSearch() {
         System.out.println("Please input path");
         String path = scanner.nextLine();
         System.out.println("Please input keyword");
@@ -49,14 +49,21 @@ public class FileUtil {
                 return name.endsWith(".txt");
             }
         });
-        DataInputStream inputStream = new DataInputStream(new FileInputStream(path));
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
-        String line = "";
-        while ((line = bufferedReader.readLine()) != null) {
-            if (line.contains(keyword)) {
-                System.out.println();
-            }
+        assert files != null;
 
+        for (File filePath : files) {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    if (line.contains(keyword)) {
+                        System.out.println(filePath.getName());
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -87,35 +94,54 @@ public class FileUtil {
     static void printSizeOfPackage() {
         System.out.println("Please input path");
         String path = scanner.nextLine();
-        long size = 0;
         File file = new File(path);
-String unit = "byts";
-if (size>1024){
-    size = size/1024;
-    unit = "kb";
-    System.out.println(unit);
-}
-
-
-
+        File[] files = file.listFiles();
+        if (file.isDirectory()) {
+            if (files != null) {
+                int size = 0;
+                for (File file1 : files) {
+                    size += file1.length();
+                }
+                System.out.println(size);
+            }
+        } else {
+            System.out.println("Please try again");
+        }
     }
+
 
     //այս մեթոդը պետք է սքաններով վերցնի երեք string.
     // 1 - path պապկի տեղը, թե որտեղ է սարքելու նոր ֆայլը
     // 2 - fileName ֆայլի անունը, թե ինչ անունով ֆայլ է սարքելու
     // 3 - content ֆայլի պարունակությունը։ Այսինքն ստեղծված ֆայլի մեջ ինչ է գրելու
     // որպես արդյունք պապկի մեջ սարքելու է նոր ֆայլ, իրա մեջ էլ լինելու է content-ով տվածը
-    static void createFileWithContent() throws IOException {
+    static void createFileWithContent() {
         System.out.println("Please input Path");
-        String path = scanner.next();
+        String path = scanner.nextLine();
         System.out.println("Plese input fileName");
+        path = path + scanner.next();
         String fileName = scanner.nextLine();
         System.out.println("Please input content");
         String content = scanner.nextLine();
         File file = new File(path);
-        file.getParentFile().mkdirs();
-        file.createNewFile();
 
+        boolean result = false;
+        try {
+            result = file.createNewFile();
+        } catch (IOException e) {
+            e.getMessage();
+        }
+        DataOutputStream out = null;
+        try {
+            out = new DataOutputStream(new FileOutputStream(path));
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+        try {
+            out.writeBytes(content);
+        } catch (IOException e) {
+            e.getMessage();
+        }
     }
 
 }
