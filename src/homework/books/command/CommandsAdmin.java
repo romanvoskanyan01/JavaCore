@@ -15,7 +15,7 @@ public interface CommandsAdmin {
     int LOGIN = 1;
     int REGISTER = 2;
 
-    static void printAdminCommands(){
+    static void printAdminCommands() {
         System.out.println("Please input " + LOGOUT + " for logout");
         System.out.println("Please input " + ADD_BOOK + " for add book");
         System.out.println("Please input " + PRINT_ALL_BOOKS + " for print all books");

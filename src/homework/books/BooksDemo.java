@@ -14,8 +14,6 @@ import homework.books.storage.UserStorage;
 import java.util.Scanner;
 
 
-
-
 public class BooksDemo implements CommandsAdmin {
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
@@ -25,7 +23,7 @@ public class BooksDemo implements CommandsAdmin {
     private static User currentUser = null;
 
     public static void main(String[] args) {
-        userStorage.add(new User("admin", "admin","admin@mail.com","admin",Role.ADMIN));
+        userStorage.add(new User("admin", "admin", "admin@mail.com", "admin", Role.ADMIN));
         boolean run = true;
         while (run) {
             CommandsAdmin.printLoginCommands();
@@ -76,14 +74,14 @@ public class BooksDemo implements CommandsAdmin {
 
         }
     }
+
     private static void register() {
         System.out.println("Please input name,surname,email,password");
         String userDataStr = scanner.nextLine();
         String[] userData = userDataStr.split(",");
         if (userData.length < 4) {
             System.out.println("Please input user data");
-        }
-         else {
+        } else {
             if (userStorage.getUserByEmail(userData[2]) == null) {
                 User user = new User();
                 user.setName(userData[0]);
@@ -93,7 +91,7 @@ public class BooksDemo implements CommandsAdmin {
                 user.setRole(Role.USER);
                 userStorage.add(user);
                 System.out.println("User registered!");
-                } else {
+            } else {
                 System.out.println("User with " + userData[2] + "already exists");
             }
         }
@@ -187,11 +185,6 @@ public class BooksDemo implements CommandsAdmin {
             }
         }
     }
-
-
-
-
-
 
     private static void printBooksByPriceRange() {
         double price = 0;
